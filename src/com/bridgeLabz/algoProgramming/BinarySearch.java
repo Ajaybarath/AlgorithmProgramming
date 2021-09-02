@@ -2,9 +2,9 @@ package com.bridgeLabz.algoProgramming;
 
 import java.util.Scanner;
 
-public class BinarySearch {
+public class BinarySearch<K extends Comparable <K>> {
 
-	static int binarySearch(String[] arr, String word) {
+	int binarySearch(K[] arr, K word) {
 		int left = 0, right = arr.length - 1;
 		while (left <= right) {
 			int mid = left + (right - left) / 2;
@@ -34,7 +34,9 @@ public class BinarySearch {
 		
 		String searchWord = s.next();
 		
-		int result = binarySearch(words, searchWord);
+		BinarySearch<String> binSearch = new BinarySearch<>();
+		
+		int result = binSearch.binarySearch(words, searchWord);
 
 		if (result == -1)
 			System.out.println("word not found");

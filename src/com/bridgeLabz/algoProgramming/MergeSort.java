@@ -2,19 +2,21 @@ package com.bridgeLabz.algoProgramming;
 
 import java.util.Arrays;
 
-public class MergeSort {
+public class MergeSort <K extends Comparable<K>> {
 
 	public static void main(String[] args) {
 
 		String sentence = "apple,orange,pinapple,grapes,water";
 
-		String array[] = sentence.toLowerCase().split(",");
+		String array[] = sentence.toLowerCase().split(","); 
 		
-		mergeSort(array, 0, array.length - 1);
+		MergeSort<String> mSort = new MergeSort<>();
+		
+		mSort.mergeSort(array, 0, array.length - 1);
 		System.out.println(Arrays.toString(array));
 	}
 
-	public static void mergeSort(String[] array, int from, int to) {
+	public void mergeSort(String[] array, int from, int to) {
 		if (from == to) {
 			return;
 		}
@@ -24,7 +26,7 @@ public class MergeSort {
 		merge(array, from, mid, to);
 	}
 
-	public static void merge(String[] array, int from, int mid, int to) {
+	public void merge(String[] array, int from, int mid, int to) {
 		int n = to - from + 1;
 		String[] b = new String[n];
 		int i1 = from;

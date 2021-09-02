@@ -1,11 +1,11 @@
 package com.bridgeLabz.algoProgramming;
 
-public class InsertionSort {
+public class InsertionSort<K extends Comparable<K>>  {
 
-	void sort(String array[]) {
+	void sort(K array[]) {
 		int length = array.length;
 		for (int i = 1; i < length; ++i) {
-			String key = array[i];
+			K key = array[i];
 			int j = i - 1;
 
 			while (j >= 0 && array[j].compareTo(key) > 0) {
@@ -22,7 +22,7 @@ public class InsertionSort {
 
 		String array[] = sentence.toLowerCase().split(",");
 		
-		InsertionSort insertion = new InsertionSort();
+		InsertionSort<String> insertion = new InsertionSort<>();
 		insertion.sort(array);
 		
 		for (int i=0;i<array.length;i++) {
