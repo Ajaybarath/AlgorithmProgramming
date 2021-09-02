@@ -1,6 +1,8 @@
 package com.bridgeLabz.algoProgramming;
 
-public class PrimeNumber {
+import java.util.ArrayList;
+
+public class PrimeNumber extends Palindrome {
 
 	static boolean prime(int n) {
 		int m = n / 2;
@@ -19,10 +21,21 @@ public class PrimeNumber {
 
 	public static void main(String args[]) {
 		
+		ArrayList<String> list = new ArrayList<>();
+		
 		for (int i=0;i<1000;i++) {
 			if (prime(i)) {
-				System.out.println(i);
+				list.add(""+i);
 			}
 		}
+		
+		for (int i=0;i<list.size();i++) {
+			for (int j=i;j<list.size();j++) {
+				if (isAnagram(list.get(i), list.get(j)) && isPalindrome(""+i)) {
+					System.out.println(i + " is a palindrome and anagram and a prime number");
+				}
+			}
+		}
+		
 	}
 }
