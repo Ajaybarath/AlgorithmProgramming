@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class AnagramDeduction {
 
-	static void isAnagram(String str1, String str2) {
+	static boolean isAnagram(String str1, String str2) {
 		String s1 = str1.replaceAll("\\s", "");
 		String s2 = str2.replaceAll("\\s", "");
 		boolean status = true;
@@ -18,15 +18,28 @@ public class AnagramDeduction {
 			status = Arrays.equals(ArrayS1, ArrayS2);
 		}
 		if (status) {
-			System.out.println(s1 + " and " + s2 + " are anagram");
+
+			return true;
 		} else {
-			System.out.println(s1 + " and " + s2 + " are not anagram");
+			return false;
 		}
 	}
 
 	public static void main(String[] args) {
-		isAnagram("heart", "earth");
-		isAnagram("Mother In Law", "Hitler Woman");
+		
+		if (isAnagram("heart", "earth")) {
+			System.out.println("these are anagram");
+
+		} else {
+			System.out.println("these are not anagram");
+		}
+		
+		if (isAnagram("Mother In Law", "Hitler Woman")) {
+			System.out.println("these are anagram");
+
+		} else {
+			System.out.println("these are not anagram");
+		}
 	}
 
 }
